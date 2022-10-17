@@ -5,7 +5,6 @@ namespace Caffeinated\Modules\Support;
 use SplFileInfo;
 use Symfony\Component\Finder\Finder;
 use Illuminate\Support\ServiceProvider as IlluminateServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
 
 class ServiceProvider extends IlluminateServiceProvider
 {
@@ -55,18 +54,6 @@ class ServiceProvider extends IlluminateServiceProvider
                 config()->set($key, require $path);
             }
         }
-    }
-
-    /**
-     * Load all module factories
-     *
-     * @param string $path
-     *
-     * @return void
-     */
-    protected function loadFactoriesFrom($path)
-    {
-        app(Factory::class)->load($path);
     }
 
     /**
